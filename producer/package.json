@@ -1,0 +1,10 @@
+{
+  "name": "producer-local-checks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Optional local browser checks and recording replay renderer for Producer",
+  "devDependencies": {
+    "playwright": "1.61.1"
+  }
+}

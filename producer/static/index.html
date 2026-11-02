@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#111916" />
+    <title>Cue Room · Private producer desk</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <a href="/" class="wordmark" aria-label="Cue Room home"
+        ><span class="brandmark" aria-hidden="true">≋</span>Cue Room</a
+      ><span>PRIVATE PRODUCTION MONITOR</span>
+    </header>
+    <main>
+      <nav aria-label="Desk views">
+        <button id="replayTab" aria-current="page">Replay review</button
+        ><button id="briefTab">Show brief</button
+        ><button id="liveTab">Live desk</button>
+      </nav>
+      <section id="desk">
+        <div class="eyebrow" id="modeLabel">RECORDING REPLAY · TEST VIEW</div>
+        <div class="titleRow">
+          <h1 id="showTitle">Applied AI Office Hours</h1>
+          <button id="fullscreen">Full screen</button>
+        </div>
+        <p id="modeExplanation" class="modeExplanation">
+          Preview of the private presenter screen, using saved results from your
+          recording. The rundown was reconstructed afterward and cue timing is
+          simulated.
+        </p>
+        <section
+          id="presenterView"
+          class="presenterView"
+          aria-labelledby="presenterLabel"
+        >
+          <div class="sectionhead viewhead">
+            <h3 id="presenterLabel">Presenter view</h3>
+            <span id="presenterTag" class="tag">REPLAY PREVIEW</span>
+          </div>
+          <div class="layout">
+            <div class="primary">
+              <div class="timing">
+                <div>
+                  <small>SHOW CLOCK</small><strong id="clock">00:00</strong>
+                </div>
+                <div>
+                  <small>TIME TO OUT</small
+                  ><strong id="remaining">60:00</strong>
+                </div>
+                <div>
+                  <small>BEAT REMAINING</small
+                  ><strong id="beatLeft">05:00</strong>
+                </div>
+              </div>
+              <article class="cue" id="cueCard" aria-live="polite">
+                <div class="cueTop">
+                  <span id="cueKind">NO ACTIVE CUE</span
+                  ><span class="lamp"></span>
+                </div>
+                <h2 id="cueLine">No cue right now.</h2>
+                <p id="evidence">
+                  Keep going. A cue appears here when there is something to act
+                  on.
+                </p>
+                <button id="dismiss" hidden>Dismiss cue</button>
+              </article>
+              <section id="liveControls" class="transport" hidden>
+                <h3>Selected camera and microphone</h3>
+                <p>
+                  Your selected video and audio go to OpenAI for processing. By
+                  starting, you confirm you can authorize that processing. The
+                  monitor is private to this browser.
+                </p>
+                <div class="controls">
+                  <button id="startLive" class="accent">
+                    Start live with OpenAI</button
+                  ><button id="pauseLive" disabled>Pause</button
+                  ><button id="stopLive" disabled>End show</button
+                  ><button id="takeBeat" disabled>Take next beat</button>
+                </div>
+              </section>
+            </div>
+            <aside>
+              <section class="panel" id="liveSource" hidden>
+                <div class="sectionhead">
+                  <h3 id="sourceTitle">Presenter feed</h3>
+                  <span class="tag" id="sourceTag">LOCAL</span>
+                </div>
+                <video
+                  id="camera"
+                  muted
+                  playsinline
+                  hidden
+                  aria-label="Selected presenter camera"
+                ></video>
+                <p id="sourceDetail">Camera and microphone selected at Start</p>
+              </section>
+              <section class="panel">
+                <div class="sectionhead">
+                  <h3 id="rundownTitle">Example rundown</h3>
+                  <span id="pace" class="tag">PLANNED</span>
+                </div>
+                <ol id="rundown"></ol>
+                <p id="rundownNote">
+                  Reconstructed for this replay. Live uses the brief you review
+                  before the show.
+                </p>
+              </section>
+              <section class="panel" id="twitchPanel">
+                <div class="sectionhead">
+                  <h3>Twitch line check</h3>
+                  <span class="tag">NOW</span>
+                </div>
+                <p id="twitchState">
+                  Check the channel title, category and live audience before
+                  going on air.
+                </p>
+                <button id="twitch">Check Twitch</button
+                ><small>Current Helix data stays on this desk.</small>
+              </section>
+            </aside>
+          </div>
+        </section>
+        <section
+          id="replayTools"
+          class="replayTools"
+          aria-labelledby="reviewLabel"
+        >
+          <div class="sectionhead">
+            <h3 id="reviewLabel">Replay review tools</h3>
+            <span class="tag">REPLAY ONLY</span>
+          </div>
+          <p class="modeExplanation">
+            Playback, seeking, speed and the future cue index are for testing
+            this recording. They do not appear in the live presenter view.
+            Playback reuses saved results without new model calls.
+          </p>
+          <div class="layout">
+            <section class="transport" id="transport">
+              <div class="sectionhead">
+                <h3>Replay transport</h3>
+                <span id="duration">—</span>
+              </div>
+              <input
+                aria-label="Replay position"
+                id="seek"
+                type="range"
+                value="0"
+                min="0"
+                max="3576.1"
+                step=".1"
+              />
+              <div class="controls">
+                <button id="play" class="accent">Play replay</button
+                ><button id="back">Back 10 s</button
+                ><button id="nextCue">Review cue index</button
+                ><label
+                  >Speed
+                  <select id="speed">
+                    <option value="1">1×</option>
+                    <option value="1.5">1.5×</option>
+                    <option value="2">2×</option>
+                  </select></label
+                >
+              </div>
+              <div id="index" hidden></div>
+            </section>
+            <section class="panel">
+              <h3>Review recording</h3>
+              <video
+                id="video"
+                preload="metadata"
+                playsinline
+                src="/media"
+                aria-label="Selected show recording"
+              ></video>
+              <p>Scott’s private review copy</p>
+            </section>
+          </div>
+        </section>
+        <div class="footline" id="status" role="status">Loading the desk…</div>
+        <details id="log">
+          <summary>Cue sheet · calls through this point</summary>
+          <div id="history"></div>
+        </details>
+      </section>
+      <section id="brief" hidden>
+        <div class="eyebrow">BEFORE AIR</div>
+        <h1>Brief the producer</h1>
+        <p class="intro">
+          Set the promise to your audience, then give each beat time to breathe.
+        </p>
+        <div class="briefgrid">
+          <section class="panel conversation">
+            <div class="sectionhead">
+              <h3>Producer conversation</h3>
+              <span class="tag" id="qCount"></span>
+            </div>
+            <div id="dialogue"></div>
+            <label for="answer" id="question"></label
+            ><textarea id="answer" rows="4" maxlength="1600"></textarea>
+            <div class="controls">
+              <button id="previousQ">Back</button
+              ><button class="accent" id="answerQ">Continue</button>
+            </div>
+            <p id="briefMsg" role="status"></p>
+          </section>
+          <section class="panel">
+            <h3>Show notes</h3>
+            <div id="notes"></div>
+            <button id="download">Export brief</button>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/desk.js"></script>
+  </body>
+</html>

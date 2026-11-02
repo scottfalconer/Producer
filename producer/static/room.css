@@ -1,0 +1,608 @@
+:root {
+  color-scheme: dark;
+  --bg: #111518;
+  --panel: #191f23;
+  --line: #354147;
+  --text: #ecefe7;
+  --muted: #a1adb1;
+  --mint: #c7e5b6;
+  --amber: #e1b67e;
+  --red: #efaaa0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: var(--mint);
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+button {
+  border: 1px solid #526067;
+  border-radius: 7px;
+  padding: 0.7rem 1rem;
+  background: #242d31;
+  color: var(--text);
+  cursor: pointer;
+}
+button:hover:enabled {
+  border-color: var(--mint);
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+.primary {
+  color: #1a2619;
+  background: var(--mint);
+  border-color: var(--mint);
+  font-weight: 650;
+}
+.textButton {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 0.6rem 0;
+}
+.mast {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 4vw;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-size: 1.4rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand span {
+  color: var(--text);
+  font-weight: 650;
+}
+.private {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+nav button {
+  background: none;
+  border-color: transparent;
+  font-size: 0.9rem;
+}
+nav [aria-current] {
+  border-color: var(--line);
+  background: #283236;
+}
+nav a {
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 8px;
+}
+main {
+  max-width: 1400px;
+  margin: auto;
+  padding: 38px 4vw;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(2.3rem, 4.6vw, 4.7rem);
+  font-weight: 550;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1rem;
+  margin: 24px 0 12px;
+}
+.pageIntro {
+  max-width: 780px;
+  margin: 10px 0 34px;
+}
+.pageIntro p {
+  font-size: 1.12rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-top: 18px;
+}
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+  display: block;
+  margin-bottom: 12px;
+}
+.prepGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 26px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.between {
+  justify-content: space-between;
+}
+.muted,
+.disclosure {
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.55;
+  margin: 12px 0;
+}
+.disclosure {
+  font-size: 0.78rem;
+}
+.badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 16px 0;
+}
+input,
+textarea,
+select {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  background: #111719;
+  border: 1px solid #4a585f;
+  border-radius: 7px;
+  padding: 12px;
+  color: var(--text);
+}
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+#thought {
+  margin: 20px 0 12px;
+  font-size: 1.05rem;
+}
+#conversation {
+  max-height: 400px;
+  overflow-y: auto;
+  line-height: 1.55;
+}
+.producerMessage,
+.hostMessage {
+  padding: 14px 0;
+  white-space: pre-wrap;
+}
+.hostMessage {
+  border-left: 2px solid #4f626b;
+  padding-left: 16px;
+  color: var(--muted);
+}
+.briefPanel p {
+  line-height: 1.55;
+  margin: 14px 0;
+}
+.intent {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.5;
+}
+.intent small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+.intent .row {
+  margin-top: 8px;
+}
+.intent button {
+  font-size: 0.74rem;
+  padding: 5px 8px;
+}
+.intent select {
+  width: auto;
+  padding: 6px;
+  margin-top: 6px;
+}
+.intent[data-state="covered"],
+.intent[data-state="skipped"] {
+  color: var(--muted);
+}
+#approve {
+  margin: 22px 0 10px;
+}
+details {
+  margin-top: 18px;
+}
+summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.monitorTop {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.monitorTop #showName {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.timeBlock {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.timeBlock span {
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+.timeBlock strong {
+  font:
+    500 1.5rem ui-monospace,
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+.hostScreen {
+  position: relative;
+  min-height: 320px;
+  height: 48vh;
+  display: none;
+  align-items: center;
+  padding: 6vh 5vw;
+  outline: none;
+}
+.hostCue {
+  width: 100%;
+  max-width: 820px;
+}
+.hostCue h1 {
+  max-width: 19ch;
+  font-size: clamp(2.5rem, 6.5vw, 6.8rem);
+  font-weight: 550;
+  line-height: 1.13;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+.hostCue[data-kind="signal"] h1 {
+  color: var(--amber);
+}
+.monitorEdge {
+  position: absolute;
+  bottom: 28px;
+  left: 5vw;
+  right: 5vw;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.presence {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #77847e;
+  border-radius: 50%;
+  flex: none;
+}
+.presence[data-state="active"] {
+  background: #a9bca5;
+  border-color: #a9bca5;
+}
+#deadlineNote {
+  margin-left: auto;
+  color: var(--amber);
+}
+.monitorSetupHint {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 65ch;
+}
+.monitorActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 24px 0 12px;
+}
+.monitorActions button {
+  font-size: 0.85rem;
+}
+.setupNote {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 12px;
+}
+.setupNote label {
+  min-width: 260px;
+}
+.setupNote p {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+#deskDrawer {
+  margin-top: 25px;
+}
+.deskGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+}
+.evidence {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.researchCard {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+  margin-top: 12px;
+}
+.researchCard p {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+.researchCard a {
+  overflow-wrap: anywhere;
+}
+.researchCard input {
+  margin: 12px 0;
+}
+.researchCard .sourceLinks a {
+  display: block;
+  font-size: 0.8rem;
+  margin: 6px 0;
+}
+#researchPrepSection {
+  margin-top: 26px;
+}
+#notice,
+#prepStatus {
+  color: var(--amber);
+  margin-top: 14px;
+  line-height: 1.5;
+}
+footer {
+  padding: 20px 4vw;
+  font-size: 0.73rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+[hidden] {
+  display: none !important;
+}
+.presenting {
+  overflow: hidden;
+}
+.presenting .mast,
+.presenting footer,
+.presenting #monitorView > :not(#hostScreen),
+.presenting #notice {
+  display: none !important;
+}
+.presenting main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.presenting .hostScreen {
+  display: flex;
+  height: 100dvh;
+  min-height: 0;
+  max-width: none;
+  padding: 8vh 10vw 14vh;
+}
+.presenting .monitorEdge {
+  left: 4vw;
+  right: 4vw;
+}
+button.active {
+  border-color: var(--mint);
+}
+@media (max-width: 800px) {
+  .mast {
+    flex-wrap: wrap;
+  }
+  .private {
+    display: none;
+  }
+  nav {
+    margin: 0;
+    gap: 2px;
+  }
+  main {
+    padding: 25px 20px;
+  }
+  .prepGrid,
+  .deskGrid {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    padding: 20px;
+  }
+  .hostScreen {
+    min-height: 320px;
+    padding: 30px 0;
+  }
+  .monitorTop {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .monitorTop #showName {
+    display: none;
+  }
+  .setupNote {
+    display: block;
+  }
+  .timeBlock {
+    margin-left: auto;
+  }
+  .hostCue h1 {
+    font-size: clamp(2.2rem, 8.5vw, 4.5rem);
+  }
+  footer {
+    display: block;
+  }
+  footer span {
+    display: block;
+    margin-top: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+input[type="checkbox"] {
+  width: auto;
+  accent-color: #c9dfbb;
+}
+.onAirAwareness {
+  position: absolute;
+  right: 4%;
+  bottom: 60px;
+  max-width: 62%;
+  color: #abb6bc;
+  font-size: clamp(12px, 1.2vw, 17px);
+  line-height: 1.35;
+  text-align: right;
+}
+
+.legacyPrep {
+  display: none !important;
+}
+#prepView .prepGrid {
+  display: block;
+  max-width: 780px;
+}
+.notesFile {
+  margin: 10px 0 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.notesFile input {
+  display: block;
+  margin-top: 7px;
+}
+.researchPacketSection {
+  margin: 18px 0;
+}
+.researchPacketDrop {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px dashed var(--line);
+  border-radius: 7px;
+}
+.researchPacketDrop[data-dragging] {
+  border-color: var(--mint);
+}
+#researchPacketStatus[role="alert"] {
+  color: var(--red);
+}
+#prepForm .setupNote {
+  margin-bottom: 20px;
+}
+#prepForm textarea {
+  min-height: 160px;
+}
+.mast nav {
+  display: none;
+}
+.presenting .hostScreen.producer-presenter-surface {
+  display: block;
+  padding: var(--producer-host-top) 0 0;
+}
+.producer-presenter-surface .monitorEdge {
+  position: static;
+}
+.producer-presenter-surface .producer-cue__line {
+  max-width: none;
+  letter-spacing: 0;
+}
+.producer-presenter-surface #deadlineNote {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+}

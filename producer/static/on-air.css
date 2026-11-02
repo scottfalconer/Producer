@@ -1,0 +1,24 @@
+@import url("/design-system/tokens.css");
+@import url("/design-system/components.css");
+
+html, body {
+  margin: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+[hidden] { display: none !important; }
+#preview, #rehearsalLabel {
+  position: absolute;
+  z-index: 3;
+  color: var(--producer-text);
+  background: rgba(7, 10, 15, .92);
+  padding: 5px 9px;
+  border-radius: 3px;
+  font-family: var(--producer-font);
+  font-size: 12px;
+}
+#preview { top: 12px; left: var(--producer-safe-x); }
+#rehearsalLabel { top: 12px; right: 16px; }
+body.preview { background: #222a30; }

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Producer · Local rehearsal</title>
+    <link rel="stylesheet" href="/on-air.css" />
+    <link rel="stylesheet" href="/rehearsal.css" />
+    <link rel="stylesheet" href="/simulated-chat.css" />
+  </head>
+  <body>
+    <video
+      id="program"
+      src="/rehearsal-media"
+      preload="auto"
+      playsinline
+    ></video>
+    <img id="simulatedChat" alt="Simulated chat from the local rehearsal" hidden />
+    <aside id="context" hidden aria-live="off">
+      <strong id="subject"></strong><span id="purpose"></span>
+    </aside>
+    <main id="graphic" hidden aria-live="polite" aria-atomic="true">
+      <div id="attribution"></div>
+      <div id="line"></div>
+    </main>
+    <div id="subtitles" hidden aria-live="off"></div>
+    <span id="preview" hidden></span>
+    <span id="rehearsalLabel"
+      >Local rehearsal · recorded show + simulated Twitch</span
+    >
+    <script type="module" src="/on-air.js"></script>
+    <script type="module" src="/rehearsal.js"></script>
+    <script type="module" src="/simulated-chat.js"></script>
+  </body>
+</html>

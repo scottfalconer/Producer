@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Producer · Broadcast overlay</title>
+    <link rel="stylesheet" href="/demo-layout.css" />
+  </head>
+  <body>
+    <main id="demoCanvas" aria-label="OBS programme layout">
+      <div id="previewLabel" hidden>Layout preview · fictional examples</div>
+      <div id="screenSlot" class="native-slot" aria-hidden="true"></div>
+      <div id="cameraSlot" class="native-slot" aria-hidden="true"></div>
+      <section id="chatSlot" aria-label="Incoming chat">
+        <div id="chatCrop"><img id="chatImage" alt="Chat from the programme" hidden /></div>
+      </section>
+      <section id="publicSlot" aria-label="Producer on-air graphics"></section>
+      <p id="disclosure" hidden>Chat simulated since I don’t have a real audience, but what Producer does with this is real.</p>
+    </main>
+    <script type="module" src="/demo-layout.js"></script>
+  </body>
+</html>

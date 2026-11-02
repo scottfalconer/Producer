@@ -1,0 +1,5 @@
+# Release dependencies reviewed and fixture-tested on November 1, 2026.
+numpy==2.2.6
+requests==2.33.0
+websockets==17.4
+Pillow==13.0.0

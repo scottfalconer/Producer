@@ -1,0 +1,22 @@
+# User input, credentials, captures, transcripts and runtime state
+.local/
+show-materials/
+.env
+.env.*
+*.pem
+*.key
+*-token.json
+*-key.txt
+
+# Dependencies and generated checks
+.venv/
+.venv-producer/
+node_modules/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.pytest_cache/
+.playwright-mcp/
+coverage/
+*.log
+.DS_Store

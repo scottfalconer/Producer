@@ -1,0 +1,144 @@
+{
+  "id": "halloween-props",
+  "synthetic": true,
+  "source": "Independently authored fictional comments for a Halloween prop-making recording rehearsal. Broad subject: a skeleton, cauldron and colored-light display. No actual viewer messages, identities or reactions, and no scripted prediction of the video's steps.",
+  "duration": 600,
+  "events": [
+    {
+      "at": 8,
+      "type": "channel.chat.message",
+      "id": "hp01",
+      "author": "Maya · simulated viewer",
+      "user_id": "fiction-hp01",
+      "text": "First time here — very ready for a Halloween-making hangout 🎃"
+    },
+    {
+      "at": 35,
+      "type": "channel.chat.message",
+      "id": "hp02",
+      "author": "Theo · simulated viewer",
+      "user_id": "fiction-hp02",
+      "text": "How do you get a skeleton to hold a pose without it flopping over?"
+    },
+    {
+      "at": 77,
+      "type": "channel.chat.message",
+      "id": "hp03",
+      "author": "Jules · simulated viewer",
+      "user_id": "fiction-hp03",
+      "text": "What made you choose green for the light?"
+    },
+    {
+      "at": 119,
+      "type": "channel.chat.message",
+      "id": "hp04",
+      "author": "Nico · simulated viewer",
+      "user_id": "fiction-hp04",
+      "text": "Do you plan the whole scene first or keep moving things until it feels right?"
+    },
+    {
+      "at": 163,
+      "type": "channel.chat.message",
+      "id": "hp05",
+      "author": "Rowan · simulated viewer",
+      "user_id": "fiction-hp05",
+      "text": "Is the cauldron something you made or a prop you started with?"
+    },
+    {
+      "at": 205,
+      "type": "channel.chat.message",
+      "id": "hp06",
+      "author": "Casey · simulated viewer",
+      "user_id": "fiction-hp06",
+      "text": "What do you use to attach pieces when you still want to take the display apart later?"
+    },
+    {
+      "at": 246,
+      "type": "channel.chat.message",
+      "id": "hp07",
+      "author": "Morgan · simulated viewer",
+      "user_id": "fiction-hp07",
+      "text": "Would you add a carved pumpkin to this scene, or would that make it too busy?"
+    },
+    {
+      "at": 285,
+      "type": "channel.chat.message",
+      "id": "hp08",
+      "author": "Ari · simulated viewer",
+      "user_id": "fiction-hp08",
+      "text": "How do you hide the light cables without making them hard to reach?"
+    },
+    {
+      "at": 291,
+      "type": "channel.chat.message_delete",
+      "id": "delete-hp08",
+      "message_id": "hp08"
+    },
+    {
+      "at": 323,
+      "type": "channel.chat.message",
+      "id": "hp09",
+      "author": "Jamie · simulated viewer",
+      "user_id": "fiction-hp09",
+      "text": "Do you aim the light at the prop or bounce it off something to get that glow?"
+    },
+    {
+      "at": 366,
+      "type": "channel.chat.message",
+      "id": "hp10",
+      "author": "Lee · simulated viewer",
+      "user_id": "fiction-hp10",
+      "text": "Making decorations is my favorite part of Halloween."
+    },
+    {
+      "at": 380,
+      "type": "channel.chat.clear_user_messages",
+      "id": "clear-hp10",
+      "user_id": "fiction-hp10"
+    },
+    {
+      "at": 407,
+      "type": "channel.chat.message",
+      "id": "hp11",
+      "author": "Sam · simulated viewer",
+      "user_id": "fiction-hp11",
+      "text": "How do you store the larger props so they survive until next Halloween?"
+    },
+    {
+      "at": 448,
+      "type": "channel.chat.message",
+      "id": "hp12",
+      "author": "Quinn · simulated viewer",
+      "user_id": "fiction-hp12",
+      "text": "Just joined — what are you working on in the display right now?"
+    },
+    {
+      "at": 493,
+      "type": "channel.chat.message",
+      "id": "hp13",
+      "author": "Ellis · simulated viewer",
+      "user_id": "fiction-hp13",
+      "text": "If I carve a pumpkin for a display like this, would an LED inside it work with the other lighting?"
+    },
+    {
+      "at": 546,
+      "type": "channel.chat.message",
+      "id": "hp14",
+      "author": "Devon · simulated viewer",
+      "user_id": "fiction-hp14",
+      "text": "What’s one detail that makes the biggest difference when you put a Halloween scene together?"
+    },
+    {
+      "at": 585,
+      "type": "channel.chat.clear",
+      "id": "halloween-clear-room"
+    }
+  ],
+  "development_expectations": {
+    "provenance": "All comments and identities are authored simulation, not evidence of the original audience.",
+    "timing": "The event clock is independent of the video's activity; comments do not predict exact assembly steps or outcomes.",
+    "questions": "Producer chooses useful questions only when they fit the actual programme; selection and answers are not scripted.",
+    "moderation": "Deleted messages, cleared-user messages and room-cleared questions must no longer be eligible for display.",
+    "facts": "Viewer questions do not verify materials, structural stability, electrical safety, ownership or completed work."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Applied AI Office Hours",
+  "goal": "Help a solo builder explain one practical decision about using AI on a live show, then leave the audience with a test they can try.",
+  "audience": "Builders and streamers who know the basics of AI but have not followed this project.",
+  "context": "No verified news item supplied. Use the presenter's own example.",
+  "tip": "Give the listener the question before walking through an implementation.",
+  "rundown": [
+    {"name":"Open the room","minutes":5},
+    {"name":"Frame the problem","minutes":15},
+    {"name":"Work through an example","minutes":25},
+    {"name":"Take questions","minutes":10},
+    {"name":"Land the takeaway","minutes":5}
+  ]
+}

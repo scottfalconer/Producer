@@ -1,0 +1,63 @@
+@import url("/design-system/tokens.css");
+@import url("/design-system/components.css");
+
+/* This is an overlay above native OBS sources, not a programme dashboard. */
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: transparent; }
+[hidden] { display: none !important; }
+#demoCanvas {
+  position: absolute; width: 1920px; height: 1080px; overflow: hidden;
+  transform-origin: top left; background: transparent; color: var(--producer-text);
+  font-family: var(--producer-font); pointer-events: none;
+}
+/* Invisible placement references keep the documented native source geometry
+   testable without painting anything over a quiet show. */
+.native-slot { position: absolute; }
+#screenSlot { left: 24px; top: 24px; width: 1296px; height: 1032px; }
+#cameraSlot { left: 1344px; top: 24px; width: 552px; height: 310.5px; }
+#chatSlot {
+  position: absolute; left: 1344px; top: 358px; width: 552px; height: 698px;
+  overflow: hidden;
+}
+/* Keep incoming text as programme pixels. Crop the original transparent
+   painter canvas instead of shrinking its text into the right column. */
+#chatCrop { position: absolute; left: 30px; bottom: 4px; width: 492px; height: 600px; overflow: hidden; }
+#demoCanvas.opening #chatCrop { height: 504px; }
+#chatImage { position: absolute; width: 1536px; height: 864px; left: -1020px; top: -240px; }
+
+#publicSlot {
+  position: absolute; left: 24px; top: 24px; width: 1296px; height: 1032px;
+  background: transparent; --producer-unit: 1px;
+  --producer-safe-x: 48px; --producer-safe-top: 48px;
+  --producer-card-bottom: 144px; --producer-protected-end: 0px;
+}
+/* Same on-air components, placed over the shared picture. The lower third
+   has space for a complete question and never reaches camera or chat. */
+#publicSlot .producer-card {
+  inset-inline-start: 48px; inset-block-end: 144px;
+  inline-size: calc(100% - 96px); max-block-size: 208px;
+  padding: 20px 28px 20px 30px;
+}
+#publicSlot .producer-card__attribution { font-size: 20px; margin-bottom: 8px; }
+#publicSlot .producer-card__line { font-size: 32px; line-height: 1.2; max-block-size: 3.6em; text-wrap: pretty; }
+#publicSlot .producer-context {
+  inline-size: min(850px, calc(100% - 96px)); max-block-size: 190px;
+  padding: 16px 22px;
+}
+#publicSlot .producer-context__subject { font-size: 28px; }
+#publicSlot .producer-context__purpose { font-size: 22px; }
+#publicSlot .producer-visual {
+  inset-block-start: 270px; inline-size: 640px; block-size: 360px;
+}
+#publicSlot .producer-captions {
+  inset-inline-start: 48px; inset-block-end: 24px;
+  inline-size: calc(100% - 96px); font-size: 30px;
+}
+#disclosure {
+  position: absolute; left: 24px; right: 24px; bottom: 2px; margin: 0;
+  color: white; font-size: 20px; line-height: 24px; text-align: center;
+  text-shadow: 0 1px 4px #000, 0 1px 8px #000;
+}
+#previewLabel {
+  position: absolute; left: 24px; bottom: 4px; z-index: 5;
+  font-size: 18px; background: #0b0d11; color: #b6c2d1;
+}

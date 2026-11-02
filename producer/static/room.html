@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#111518" />
+    <title>Producer · Your live show</title>
+    <link rel="stylesheet" href="/room.css" />
+    <link rel="stylesheet" href="/design-system/tokens.css" />
+    <link rel="stylesheet" href="/design-system/components.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <a class="brand" href="/">≋ <span>Producer</span></a
+      ><span class="private">Your private producer</span>
+      <nav aria-label="Show workspace">
+        <button id="prepTab" aria-current="page">Prepare</button
+        ><button id="monitorTab">Monitor</button
+        ><button id="reviewTab">After the show</button
+        ><a href="/replay">Recording replay ↗</a>
+      </nav>
+    </header>
+    <main>
+      <section id="prepView">
+        <div class="pageIntro">
+          <span class="eyebrow">Before the show</span>
+          <h1>Give Producer your show notes.</h1>
+          <p>A brief, rough bullets or a few paragraphs. No template needed.</p>
+        </div>
+        <div class="prepGrid">
+          <section class="conversation panel">
+            <div id="conversation" class="legacyPrep" aria-live="polite">
+              <p class="producerMessage">
+                What would you like your audience to leave with?
+              </p>
+            </div>
+            <form id="prepForm">
+              <label class="sr" for="thought">Show notes</label
+              ><textarea
+                id="thought"
+                maxlength="20000"
+                rows="7"
+                placeholder="I want to show the new build, explain why we changed direction, and remember to share the repo. No hard finish today…"
+              ></textarea>
+              <label class="notesFile"
+                >Or open a notes file<input
+                  id="notesFile"
+                  type="file"
+                  accept=".txt,.md,text/plain,text/markdown"
+              /></label>
+              <details id="researchPacketSection" class="researchPacketSection">
+                <summary id="researchPacketSummary">Research packet (optional)</summary>
+                <div id="researchPacketDrop" class="researchPacketDrop">
+                  <p id="researchPacketHelp" class="muted">Paste your research, or drop a Markdown or text file here. Producer can use its facts, links and references when relevant.</p>
+                  <label for="researchPacket">Research packet</label>
+                  <textarea id="researchPacket" rows="6" aria-describedby="researchPacketHelp researchPacketStatus" placeholder="Background, source links, useful facts, or references to earlier episodes…"></textarea>
+                  <div class="row">
+                    <label class="notesFile">Open a research file<input id="researchPacketFile" type="file" accept=".txt,.md,text/plain,text/markdown" /></label>
+                    <button id="clearResearchPacket" type="button" class="textButton">Remove packet</button>
+                  </div>
+                  <p id="researchPacketStatus" class="muted" role="status" aria-live="polite"></p>
+                </div>
+              </details>
+              <p id="showMaterialsStatus" class="muted" hidden></p>
+              <div class="row">
+                <button type="submit" id="sendPrep" class="primary">
+                  Start offline test</button
+                ><button type="button" id="voice" class="legacyPrep">
+                  Use microphone</button
+                ><span id="voiceState" class="muted"></span>
+              </div>
+              <p id="offlineNotice" class="muted">
+                Offline test: Twitch events/actions simulated. OpenAI processing still on.
+              </p>
+              <p class="disclosure">
+                OpenAI processes your show notes, selected research packet and feed. Producer
+                saves the show transcript locally for recall and wrap-up.
+              </p>
+            </form>
+            <p id="prepStatus" role="status"></p>
+          </section>
+          <aside class="panel briefPanel legacyPrep">
+            <div class="row between">
+              <h2>Our working brief</h2>
+              <span id="briefState" class="badge">Not reviewed</span>
+            </div>
+            <p id="briefEmpty" class="muted">
+              Your intentions will take shape here as we talk. Research stays
+              separate from things you want to accomplish.
+            </p>
+            <div id="briefReadback"></div>
+            <button id="approve" class="primary" hidden>Use this brief</button>
+            <details id="editDetails" hidden>
+              <summary>Edit the details</summary>
+              <form id="editForm">
+                <label>Show name<input id="editTitle" maxlength="160" /></label
+                ><label
+                  >Audience<textarea
+                    id="editAudience"
+                    rows="2"
+                  ></textarea></label
+                ><label
+                  >Purpose<textarea id="editGoal" rows="2"></textarea>
+                </label>
+                <div class="row">
+                  <label
+                    >Timing<select id="timingMode">
+                      <option value="flexible">Flexible</option>
+                      <option value="hard">Hard stop</option>
+                    </select></label
+                  ><label
+                    >Minutes<input
+                      id="timingMinutes"
+                      type="number"
+                      min="1"
+                      max="480"
+                  /></label>
+                </div>
+                <div id="editIntentions"></div>
+                <label
+                  >Recovery prompt<input
+                    id="editRecovery"
+                    maxlength="200" /></label
+                ><button type="submit">Save edits</button>
+              </form>
+            </details>
+            <button id="example" class="textButton">
+              Try an example brief
+            </button>
+          </aside>
+        </div>
+      </section>
+      <section id="monitorView" hidden>
+        <div class="monitorTop">
+          <span id="sessionState" class="badge">Ready</span
+          ><span id="showName">Your show</span>
+          <div class="timeBlock">
+            <span id="timeLabel">Elapsed</span
+            ><strong id="showClock">00:00</strong>
+          </div>
+          <button id="focusMode">Preview monitor</button>
+        </div>
+        <section
+          id="hostScreen"
+          class="hostScreen"
+          aria-label="Private presenter monitor"
+        >
+          <article
+            id="hostCue"
+            class="hostCue"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <h1 id="hostCueLine"></h1>
+          </article>
+          <div
+            id="onAirAwareness"
+            class="onAirAwareness"
+            hidden
+            aria-live="off"
+          ></div>
+          <div class="monitorEdge">
+            <span
+              id="monitorPresence"
+              class="presence"
+              role="img"
+              aria-label="Capture off"
+            ></span>
+            <span id="previewLabel" hidden>Preview · capture off</span>
+            <span id="deadlineNote" hidden></span>
+          </div>
+        </section>
+        <div class="monitorActions">
+          <div class="row">
+            <button id="startShow" class="primary">Start offline test</button
+            ><button id="pauseShow" hidden>Pause</button
+            ><button id="endShow" hidden>End show</button>
+          </div>
+          <div class="row">
+            <button id="openDesk">Producer desk</button>
+          </div>
+        </div>
+        <p id="liveStatus" role="status" class="muted">
+          Nothing is being captured.
+        </p>
+        <p id="offlineSessionNotice" class="muted">
+          Offline test: Twitch events/actions simulated. OpenAI processing still on.
+        </p>
+        <p class="monitorSetupHint">
+          Start once, then present. Cues appear and clear automatically. Escape
+          returns to controls after the show.
+        </p>
+        <details id="startDisclosure" class="setupNote">
+          <summary>Source and output</summary>
+          <label
+            ><input type="checkbox" id="liveTwitchActions" /> Use live Twitch actions</label
+          >
+          <label
+            ><input type="checkbox" id="onAirMode" checked /> Let Producer on air</label
+          >
+          <label
+            ><input type="checkbox" id="captionsMode" /> Show subtitles for this show
+            on the audience overlay</label
+          >
+          <p>
+            Producer keeps viewers oriented and chooses questions, references
+            and takeaways automatically. Your private cues stay backstage.
+            <a href="/on-air?preview=1" target="_blank" rel="noopener"
+              >Preview</a
+            >
+            · Browser source: <code>http://127.0.0.1:8786/on-air</code>
+          </p>
+          <label
+            >Selected input<select id="inputKind">
+              <option id="obsInputOption" value="obs" hidden disabled>OBS picture and audio</option>
+              <option value="camera">Camera and microphone</option>
+              <option value="microphone">Microphone only</option>
+              <option value="tab">Shared browser tab and its audio</option>
+              <option value="rehearsal">
+                Office Hours recording + simulated Twitch
+              </option>
+            </select></label
+          >
+          <p id="obsInputHelp" hidden>Start Producer here, then Start Recording in OBS. Producer receives the OBS picture and full audio mix directly. This browser only displays your screens; no browser camera or microphone access is needed.</p>
+          <p id="sourceDisclosure">
+            Start sends this selected feed to OpenAI. Confirm you can authorize
+            its processing. The monitor is private; camera preview is not a
+            verified broadcast return.
+          </p>
+          <p id="showFolderPath" class="muted" hidden></p>
+        </details>
+        <video id="capturePreview" muted playsinline hidden></video>
+        <section id="deskDrawer" class="panel" hidden>
+          <div class="row between">
+            <h2>Producer desk</h2>
+            <button id="closeDesk">Close</button>
+          </div>
+          <p class="muted">
+            The detailed record. Your corrections take priority over model
+            suggestions.
+          </p>
+          <div class="deskGrid">
+            <div>
+              <h3>Intentions, in any order</h3>
+              <div id="memoryList"></div>
+              <h3>Last cue evidence</h3>
+              <p id="cueEvidence" class="evidence">No cue yet.</p>
+              <h3>Source status</h3>
+              <p id="sourceStatus">Capture off.</p>
+              <button id="checkTwitch">Check Twitch</button>
+              <p id="twitchStatus" class="muted">
+                Uses the existing Twitch connection.
+              </p>
+              <button id="connectChat">Read audience questions</button>
+              <p id="chatStatus" class="muted">
+                Audience messages stay local. Nothing is posted to chat.
+              </p>
+              <div id="chatQuestions"></div>
+              <h3>Production history</h3>
+              <div id="productionHistory"></div>
+            </div>
+            <div>
+              <h3>Research shelf</h3>
+              <div id="researchLive"></div>
+              <form id="researchForm">
+                <label
+                  >Check something for me<input
+                    id="researchQuestion"
+                    maxlength="300"
+                    placeholder="A question you want researched" /></label
+                ><label
+                  >Why it helps<input
+                    id="researchPurpose"
+                    maxlength="300"
+                    placeholder="An example for the current discussion" /></label
+                ><button type="submit" id="researchSubmit">
+                  Research with OpenAI
+                </button>
+              </form>
+              <p class="muted">
+                Findings wait until they help the conversation. Producer chooses
+                when a cue earns its place.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section id="reviewView" hidden>
+        <div class="pageIntro">
+          <span class="eyebrow">After the show</span>
+          <h1>Pick up what remains.</h1>
+          <p>
+            Unfinished intentions, useful research and the cues you saw. Keep
+            what helps for next time.
+          </p>
+        </div>
+        <div class="prepGrid">
+          <section class="panel">
+            <h2>Your show’s memory</h2>
+            <div id="reviewMemory"></div>
+            <h3>Cues and your feedback</h3>
+            <div id="reviewCues"></div>
+            <button id="exportReview">Export show notes</button>
+          </section>
+          <section class="panel">
+            <h2>Research to carry forward</h2>
+            <div id="researchReview"></div>
+          </section>
+        </div>
+      </section>
+      <section id="researchPrepSection" class="panel legacyPrep">
+        <h2>Research shelf</h2>
+        <p class="muted">
+          Purpose, finding and sources stay together. Research does not add
+          obligations to your show.
+        </p>
+        <div id="researchPrep"></div>
+      </section>
+      <p id="notice" role="status"></p>
+    </main>
+    <footer>Local working memory · OpenAI processing</footer>
+    <script type="module" src="/room.js"></script>
+  </body>
+</html>

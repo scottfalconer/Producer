@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Producer · Component library</title>
+    <link rel="stylesheet" href="/design-system/tokens.css" />
+    <link rel="stylesheet" href="/design-system/components.css" />
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <header class="library-header">
+      <a class="brand" href="/">≋ Producer</a>
+      <span>Component library</span>
+      <a class="back-link" href="/">Back to show ↗</a>
+    </header>
+    <main>
+      <div class="library-intro">
+        <div><p class="eyebrow">Design workspace</p><h1>A useful signal. Room for the show.</h1>
+        <p>Shared components for the audience and presenter. Adjust a component, then see it in context.</p></div>
+        <span class="preview-badge">Fictional preview · no capture</span>
+      </div>
+      <div class="library-grid">
+        <aside class="editor" aria-label="Component controls">
+          <label for="surface">Surface</label>
+          <select id="surface"><option value="public">On air</option><option value="presenter">Presenter</option></select>
+          <label for="component">Component</label>
+          <select id="component">
+            <option value="question">Viewer question</option><option value="reference">Reference</option>
+            <option value="takeaway">Takeaway</option><option value="result">Reported result</option>
+            <option value="thread">Thread</option><option value="remark">Producer note</option>
+            <option value="title">Topic title</option><option value="context">Context label</option>
+            <option value="captions">Spoken captions</option><option value="map">Map · Canada</option><option value="quiet">Quiet</option>
+          </select>
+          <div id="publicOptions">
+            <label for="attribution">Attribution</label><input id="attribution" maxlength="100" />
+            <label for="align">Placement</label><select id="align"><option value="left">Lower left</option><option value="right">Lower right</option></select>
+            <div class="check-row"><input id="withContext" type="checkbox" checked /><label for="withContext">Context label</label></div>
+            <div class="check-row"><input id="withCaptions" type="checkbox" /><label for="withCaptions">Spoken captions</label></div>
+            <div class="check-row"><input id="hairline" type="checkbox" /><label for="hairline">Expiry hairline</label></div>
+          </div>
+          <div id="presenterOptions" hidden>
+            <label for="presence">Input state</label><select id="presence"><option value="active">Active</option><option value="off">Off</option><option value="paused">Paused</option></select>
+            <p class="field-note">One cue. A steady input indicator. No presenter controls.</p>
+          </div>
+          <label for="copy">Component text</label><textarea id="copy" rows="4" maxlength="300"></textarea>
+          <p id="textStatus" class="field-note" role="status"></p>
+          <details id="themeEditor" class="theme-editor"><summary>Theme tokens</summary>
+            <label for="accent">Accent override</label><input id="accent" type="color" value="#38bdf8" />
+            <label for="radius">Card radius <output id="radiusValue">12 px</output></label><input id="radius" type="range" min="0" max="24" value="12" />
+            <label for="typeSize">Primary text <output id="typeSizeValue">24 px</output></label><input id="typeSize" type="range" min="20" max="40" value="24" />
+            <button id="copyTheme" type="button" class="secondary">Copy theme CSS</button>
+            <p class="field-note">Preview changes stay here. Apply the copied overrides to the shared tokens to change Producer.</p>
+          </details>
+        </aside>
+        <section class="preview-panel" aria-label="Component preview">
+          <div class="preview-toolbar">
+            <div class="background-switch" role="group" aria-label="Programme background"><button id="darkScene" aria-pressed="true">Dark</button><button id="lightScene" aria-pressed="false">Light</button></div>
+            <label class="compact">Canvas<select id="resolution"><option value="1920">1920 × 1080</option><option value="1280">1280 × 720</option></select></label>
+            <div class="check-row"><input id="guides" type="checkbox" /><label for="guides">Guides</label></div>
+          </div>
+          <div id="viewport" class="viewport">
+            <div id="canvas" class="preview-canvas">
+              <div id="sampleScene" class="sample-scene" aria-hidden="true">
+                <div class="sample-bar"><b>Office Hours</b><span>Applied AI · fictional programme</span></div>
+                <div class="sample-content"><section><span class="sample-kicker">Working example</span><h2>Make something useful.</h2><p>Follow the conversation. Show the work.</p><div class="sample-code"><span>01</span> const next = await tryOneThing();<br /><span>02</span> await checkWhatChanged(next);<br /><span>03</span> shareWhatWeLearned();</div></section><div class="sample-camera"><span>Presenter area</span><div class="camera-silhouette"></div></div></div>
+              </div>
+              <div id="surfaceRoot"></div>
+              <div id="safeGuides" class="safe-guides" hidden aria-hidden="true"><span>Graphics safe · 5%</span><div class="action-guide"><span>Keep the action clear</span></div></div>
+            </div>
+          </div>
+          <div class="preview-footer"><span id="componentSummary"></span><span id="motionStatus">Uses your device’s motion preference</span></div>
+          <div class="playback"><button id="replay" class="primary">Play timing</button><button id="clear" class="secondary">Clear</button><span id="timingStatus" role="status"></span></div>
+          <details class="usage"><summary>Use this component</summary><pre id="usageCode"></pre><button id="copyUsage" class="secondary">Copy example</button></details>
+        </section>
+      </div>
+      <section class="library-notes"><h2>One source for the design.</h2><p>Tokens control color, type, spacing and motion. Components render content. The live producer controls eligibility and expiry. Timing here is a tunable rehearsal default, not a claim about an industry standard.</p><div><a href="/design-system/tokens.css">Tokens ↗</a><a href="/design-system/components.js">Component API ↗</a><a href="/design-system/timing.js">Timing rules ↗</a></div></section>
+      <p id="copyStatus" class="copy-status" role="status"></p>
+    </main>
+    <script type="module" src="/design.js"></script>
+  </body>
+</html>

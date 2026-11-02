@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Producer · On air</title>
+    <link rel="stylesheet" href="/on-air.css" />
+  </head>
+  <body>
+    <aside id="context" hidden aria-live="off">
+      <strong id="subject"></strong><span id="purpose"></span>
+    </aside>
+    <main id="graphic" hidden aria-live="polite" aria-atomic="true">
+      <div id="attribution"></div>
+      <div id="line"></div>
+    </main>
+    <div id="subtitles" hidden aria-live="off"></div>
+    <span id="preview" hidden
+      >Overlay preview · fictional example · capture off</span
+    >
+    <span id="rehearsalLabel" hidden
+      >Local rehearsal · recorded show + simulated Twitch</span
+    >
+    <script type="module" src="/on-air.js"></script>
+  </body>
+</html>

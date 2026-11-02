@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Producer · Presenter monitor</title>
+    <link rel="stylesheet" href="/phone-monitor.css" />
+  </head>
+  <body>
+    <main aria-label="Private presenter monitor">
+      <header><span id="presence" role="img" aria-label="Disconnected"></span>Producer</header>
+      <h1 id="cue" aria-live="polite" aria-atomic="true"></h1>
+      <p id="connection">Connecting to your presenter monitor…</p>
+    </main>
+    <script src="/phone-monitor.js" defer></script>
+  </body>
+</html>

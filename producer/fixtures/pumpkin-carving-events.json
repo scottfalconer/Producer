@@ -1,0 +1,145 @@
+{
+  "id": "pumpkin-carving",
+  "synthetic": true,
+  "source": "Independently authored fictional comments for a pumpkin-carving recording rehearsal. No actual viewer messages, identities, reactions or transcription from the supplied video.",
+  "duration": 600,
+  "events": [
+    {
+      "at": 8,
+      "type": "channel.chat.message",
+      "id": "pc01",
+      "author": "Maya · simulated viewer",
+      "user_id": "fiction-pc01",
+      "text": "First time here — a pumpkin-carving hangout sounds lovely 🎃"
+    },
+    {
+      "at": 35,
+      "type": "channel.chat.message",
+      "id": "pc02",
+      "author": "Theo · simulated viewer",
+      "user_id": "fiction-pc02",
+      "text": "What do you look for when choosing a pumpkin to carve?"
+    },
+    {
+      "at": 77,
+      "type": "channel.chat.message",
+      "id": "pc03",
+      "author": "Jules · simulated viewer",
+      "user_id": "fiction-pc03",
+      "text": "Are you following a pattern or figuring out the design as you go?"
+    },
+    {
+      "at": 119,
+      "type": "channel.chat.message",
+      "id": "pc04",
+      "author": "Nico · simulated viewer",
+      "user_id": "fiction-pc04",
+      "text": "What tool would you recommend for someone carving their first pumpkin?"
+    },
+    {
+      "at": 163,
+      "type": "channel.chat.message",
+      "id": "pc05",
+      "author": "Rowan · simulated viewer",
+      "user_id": "fiction-pc05",
+      "text": "Do you save the seeds to roast afterward?"
+    },
+    {
+      "at": 205,
+      "type": "channel.chat.message",
+      "id": "pc06",
+      "author": "Casey · simulated viewer",
+      "user_id": "fiction-pc06",
+      "text": "How do you tell when you’ve scraped the inside thin enough?"
+    },
+    {
+      "at": 246,
+      "type": "channel.chat.message",
+      "id": "pc07",
+      "author": "Morgan · simulated viewer",
+      "user_id": "fiction-pc07",
+      "text": "I always lose track of the little pieces. Do you cut the small details first or last?"
+    },
+    {
+      "at": 285,
+      "type": "channel.chat.message",
+      "id": "pc08",
+      "author": "Ari · simulated viewer",
+      "user_id": "fiction-pc08",
+      "text": "What would you do differently for carving with kids?"
+    },
+    {
+      "at": 291,
+      "type": "channel.chat.message_delete",
+      "id": "delete-pc08",
+      "message_id": "pc08"
+    },
+    {
+      "at": 323,
+      "type": "channel.chat.message",
+      "id": "pc09",
+      "author": "Jamie · simulated viewer",
+      "user_id": "fiction-pc09",
+      "text": "If a thin part breaks off, is there a way to rescue it?"
+    },
+    {
+      "at": 366,
+      "type": "channel.chat.message",
+      "id": "pc10",
+      "author": "Lee · simulated viewer",
+      "user_id": "fiction-pc10",
+      "text": "This makes me want to try carving one this weekend."
+    },
+    {
+      "at": 380,
+      "type": "channel.chat.clear_user_messages",
+      "id": "clear-pc10",
+      "user_id": "fiction-pc10"
+    },
+    {
+      "at": 407,
+      "type": "channel.chat.message",
+      "id": "pc11",
+      "author": "Sam · simulated viewer",
+      "user_id": "fiction-pc11",
+      "text": "Would you light it with an LED or a candle?"
+    },
+    {
+      "at": 448,
+      "type": "channel.chat.message",
+      "id": "pc12",
+      "author": "Quinn · simulated viewer",
+      "user_id": "fiction-pc12",
+      "text": "Just joined — what’s the plan for the pumpkin?"
+    },
+    {
+      "at": 493,
+      "type": "channel.chat.message",
+      "id": "pc13",
+      "author": "Ellis · simulated viewer",
+      "user_id": "fiction-pc13",
+      "text": "How do you keep a carved pumpkin looking good for longer?"
+    },
+    {
+      "at": 546,
+      "type": "channel.chat.message",
+      "id": "pc14",
+      "author": "Devon · simulated viewer",
+      "user_id": "fiction-pc14",
+      "text": "What’s the trickiest part of pumpkin carving for you?"
+    },
+    {
+      "at": 585,
+      "type": "channel.chat.clear",
+      "id": "pumpkin-clear-room"
+    }
+  ],
+  "development_expectations": {
+    "provenance": "All comments and identities are authored simulation, not evidence of the original audience.",
+    "timing": "Comments are spread across the ten-minute test; a timestamp does not assert the host has reached that carving step.",
+    "welcome_and_support": "Ordinary greetings and encouragement need not become presenter cues or public cards.",
+    "questions": "Producer chooses useful questions only when they fit the actual programme; selection and answers are not scripted.",
+    "moderation": "Deleted messages, cleared-user messages and room-cleared questions must no longer be eligible for display.",
+    "facts": "Questions are not proof of a technique, completed result, safety condition or factual answer."
+  }
+}

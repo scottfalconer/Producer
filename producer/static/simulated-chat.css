@@ -1,0 +1,25 @@
+.simulated-chat-page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+#simulatedChat {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+#simulatedChatPreview {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  color: #dce8ed;
+  background: #0c1118;
+  border-radius: 6px;
+  font: 16px system-ui, sans-serif;
+}
