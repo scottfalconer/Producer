@@ -59,9 +59,3 @@ Queues and media buffers are bounded. Provider, decoder and source errors are vi
 | Recorded input and action replay | `producer/recorded_source.py`, `action_trace.py`, `action_replay.py` |
 
 Some compatibility modules remain because historical fixture and replay semantics are deliberately preserved. Their presence does not mean the active director runs the older multi-stage editorial pipeline. Tests should establish active routing before changing shared code.
-
-## Evidence boundaries
-
-Unit and browser tests exercise deterministic routing with fixtures. A recorded-show inference run evaluates model behavior on selected media. Saved-action replay evaluates how code translates the same returned actions into state and pixels. These are different tests.
-
-Native OBS/OpenAI input and screen output have been exercised. One explicitly authored post has separately traversed the real production dispatcher and received a Twitch delivery confirmation. That does not prove a complete autonomous live broadcast or long-session editorial quality. Keep those distinctions in release notes and demonstrations.

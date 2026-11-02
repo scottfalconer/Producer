@@ -38,18 +38,18 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "4d6a0d3b1d974f83709b4a256b35531ee2ac52cba69067b9df864c8824b87e8c",
-      "bytes": 5772
+      "sha256": "545efdd79d1a7baea2207029bd1395eeb21b1999faf1d0618e930685a1cff8d8",
+      "bytes": 5131
     },
     {
       "path": "docs/CONTRIBUTING.md",
-      "sha256": "a6d572840712bd2317a906b6b143a3e242aa2b92af7a33c894772a09352a710f",
-      "bytes": 3368
+      "sha256": "f969f96e234b53dfb8fd31975efcbb81a09fa0eb2e68cac42da206add777d6f5",
+      "bytes": 2475
     },
     {
       "path": "docs/SECURITY.md",
-      "sha256": "9f9ebe4cd879b67a461414001fa026c9a8b2fd8abadbb4840ca04e0893d12953",
-      "bytes": 4908
+      "sha256": "7c08b5bb0afcdf6fb634b0274ba04b0d6082c8789d3d9a91c6d70290042056de",
+      "bytes": 4298
     },
     {
       "path": "docs/SETUP.md",

@@ -36,11 +36,3 @@ node producer/realtime-browser-check.cjs
 5. Update the setup or architecture docs when public behavior changes.
 
 For UI changes, use the shared components/tokens and inspect presenter/audience views separately. Do not add operator controls to the passive confidence monitor. For prompt changes, use a fresh recorded-show inference run; replaying old actions cannot establish improved model judgment.
-
-## Private files and release content
-
-Keep keys, OAuth tokens, recordings, transcripts, show notes, research packets and captured debug bundles in ignored local paths. `.local/` is the project's working-data area. Do not copy personal show folders, browser state, downloaded reference archives or development conversation exports into a contribution.
-
-Use synthetic inputs for reproducible tests and preserve their disclosure. Generated fixture author names are not actual viewers. Third-party assets need their original license/attribution; the MIT license for Producer does not relicense dependencies or your media.
-
-Before publishing, inspect the exact staged file list and run a secret scan over the export, not just the working tree. Review logs/screenshots separately; they can contain show content even if they contain no credentials. Do not push a copied working directory wholesale.

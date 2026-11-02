@@ -14,7 +14,7 @@ Phone access uses plain HTTP rather than TLS. The pairing token and cue travel o
 
 When you start a show, the selected audio, sampled images, notes, selected research packet and relevant show context are processed by your configured OpenAI account. Offline mode simulates Twitch actions; it does not disable paid OpenAI processing. The optional consulting editor also uses OpenAI.
 
-The active demo reads fictional incoming comments from program images. It does not fetch real Twitch chat into the Realtime director. If actual viewer content appears in a source you select, consider the rights and permissions for sending that source to your provider. Do not assume public visibility alone authorizes every use.
+If actual viewer content appears in a source you select, consider the rights and permissions for sending that source to your provider. Do not assume public visibility alone authorizes every use.
 
 Live Twitch actions are separately enabled. Only confirmed public deliveries count as success. A broadcaster-labeled post retains the broadcaster's real Twitch username with `(From Producer)` attribution; it is not a separate identity.
 
@@ -34,7 +34,3 @@ Treat recordings, debug bundles and screenshots as private show material. Inspec
 The main helper binds to loopback, serves allowlisted assets and validates browser mutation origin/token. The separate phone listener allowlists its assets and cue fields, validates its expected host and pairing token, and rejects write methods. Materials and tool payloads are bounded. Selected source/session identity, current output identity and Stop checks reject stale actions. Transcript retrieval is show-scoped and past-only. Public writes use identity/capability checks and a durable ledger rather than success assumptions or blind retries.
 
 Program speech, visible chat, notes and research are untrusted context. They must not expand the model's available tools or override privacy/permission boundaries. Direct spoken-command execution is inactive. The model can still make factual or editorial mistakes, including misreading a sampled image; those are not prevented by a structurally valid tool call.
-
-## Reporting
-
-For a possible credential exposure or security vulnerability, do not paste tokens, private recordings or personal transcripts into a public issue. Describe the affected version and general impact without exploit details or secrets, and arrange private contact with the repository maintainer before transferring sensitive evidence. If a credential has been exposed, revoke it with its issuing provider rather than relying on removal from a file or commit alone.
