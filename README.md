@@ -1,43 +1,52 @@
 # Producer
 
-Producer is an AI live director for solo streamers. It follows your selected show audio and sampled images, uses your notes and optional research packet, and chooses what helps the show on two separate screens:
+Producer is an AI live director that helps streamers make a better show while they keep presenting. It follows your audio and sampled video frames, using your show notes and optional research to decide what deserves attention.
 
-- **Presenter:** a quiet confidence monitor with timely reminders, audience questions and useful next steps.
-- **Audience:** a transparent OBS overlay with relevant questions, references, facts and images.
+- **For you:** a private confidence monitor with audience questions, useful reminders, and a steady reference to what comes next. View it on your computer or an optionally connected phone.
+- **For viewers:** an OBS overlay with relevant questions, facts, links, and images from your show materials.
 
-One ongoing OpenAI Realtime session makes the editorial choices. Local Python code validates and routes its actions, maintains screen state, and handles source and session boundaries. Producer does not generate a speaking voice. Automatic subtitles and spoken commands are off by default; direct spoken commands are not part of the active flow.
+OpenAI’s Realtime model decides what to show and when. Built with OpenAI Codex for the Codex x TwitchCon Hackathon.
 
 ## Try it
 
-You need Python 3.12 and an OpenAI Platform API key with access to the configured Realtime model. The tested host is macOS. Direct OBS input and recorded-show rehearsals also need FFmpeg on your PATH. Node/Playwright are optional development and replay-rendering tools, not a prerequisite for the live screens.
+The live setup has been tested on **macOS**. You need **Python 3.12**, a browser, and an **OpenAI Platform API key** with access to the configured models. OBS and recorded-video input also require **FFmpeg**.
+
+Save your API key in a private text file outside the repository, then run:
 
 ```sh
+git clone https://github.com/scottfalconer/Producer.git
+cd Producer
 python3.12 -m venv .venv-producer
 . .venv-producer/bin/activate
 python -m pip install -r producer/requirements.txt
 python producer/server.py --port 8786 --key-file /absolute/path/to/openai-key.txt
 ```
 
-Open [Producer](http://127.0.0.1:8786/), paste a few show notes, choose **Microphone only** under **Source and output**, and press **Start offline test**. Use [the setup guide](docs/SETUP.md) for direct OBS picture/audio, both screens, materials, and optional Twitch actions.
+Replace the key-file path with your own. Keep the terminal running, then:
 
-**Offline means simulated Twitch actions, not free or local AI.** Starting a show sends its selected feed, notes and research to OpenAI and uses your API account. You do not need a Twitch connection for an offline rehearsal. Without a key, you can start the helper and inspect the design previews; model processing requires the key.
+1. Open [Producer](http://127.0.0.1:8786/) and paste your show notes.
+2. Under **Source and output**, choose **Microphone only**.
+3. Press **Start offline test**, allow microphone access, and start presenting.
+4. Open [the audience overlay](http://127.0.0.1:8786/on-air) separately to see public graphics. Press **Escape** in the presenter view to reach **Pause** and **End show**.
 
-## OBS and Twitch
+This trial hears your microphone; it cannot see your screen or chat. **Offline keeps Twitch actions simulated.** Your selected audio, images, notes, and research still go to OpenAI and incur API charges. A Twitch connection is optional.
 
-The direct OBS route sends the finished programme and full selected audio mix to a loopback receiver. The browser displays the screens; it does not need webcam or microphone permissions for this route. Producer's audience overlay can sit above your existing OBS scene. The confidence monitor stays outside the programme.
+## Use it with OBS and Twitch
 
-Twitch production is optional and off by default. It requires an authorized account, an explicit helper flag, and **Use live Twitch actions** for that show. The current live path can share current public output in chat and execute reviewed production plans. A broadcaster account can use the literal `(From Producer)` attribution; a separately authorized account is also supported. Producer never starts OBS broadcasting.
+Follow the [OBS setup](docs/SETUP.md#4-feed-the-complete-obs-program-directly) to send your finished video and full audio mix directly to Producer. Add the transparent audience overlay above your existing OBS scene. Keep the private confidence monitor outside the broadcast; the [phone setup](docs/SETUP.md#5-optional-phone-confidence-monitor) gives you a separate display.
 
-For demonstrations, the optional simulated-chat layer provides fictional incoming comments. The selected programme images carry those comments to the model. They are not real Twitch API chat messages, and the opening overlay discloses the simulation. Confirmed Producer posts can appear in that feed too.
+With Twitch authorization and live actions explicitly enabled, Producer can share current on-air content in chat and execute production plans you’ve reviewed. You control broadcasting in OBS. See [Twitch setup](docs/SETUP.md#6-optional-real-twitch-production).
 
-## Project map
+The optional demo chat contains fictional comments, disclosed on screen. Producer reads those comments from the video frames; it does not fetch incoming Twitch chat through the API.
 
-- [Setup and troubleshooting](docs/SETUP.md)
-- [Architecture and data flow](docs/ARCHITECTURE.md)
+## Documentation
+
+- [Setup, model requirements, previews, and troubleshooting](docs/SETUP.md)
+- [Architecture](docs/ARCHITECTURE.md)
 - [Development and tests](docs/CONTRIBUTING.md)
-- [Privacy and security boundaries](docs/SECURITY.md)
-- [Editable director prompt](producer/realtime_prompt.md)
+- [Privacy and security](docs/SECURITY.md)
+- [Director prompt](producer/realtime_prompt.md)
 
-This is a working prototype built with Codex for the Codex x TwitchCon hackathon. Native OBS/OpenAI screen output and one real attributed Twitch chat delivery have been exercised separately. Model timing and usefulness vary; a successful action or replay does not prove editorial quality. Long broadcasts, cross-platform installation and autonomous live production need further testing.
+This is an early prototype. Model timing and usefulness vary; long broadcasts and live production need further testing.
 
-Original Producer code is released under the [MIT license](LICENSE). Bundled fonts retain their SIL Open Font License notices, and the country outline derives from public-domain Natural Earth data. See the accompanying asset notices. Recordings, credentials, personal show materials and development conversation archives are not included.
+Producer’s original code is [MIT licensed](LICENSE). Bundled assets retain their [third-party licenses and notices](THIRD_PARTY_NOTICES.md).

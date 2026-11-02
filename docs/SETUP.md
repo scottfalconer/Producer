@@ -17,7 +17,7 @@ python producer/server.py --port 8786 --key-file /absolute/path/to/openai-key.tx
 
 Save your OpenAI Platform key in a private text file outside version control. Keep it out of notes, research, screenshots and logs. This command uses `--key-file`; setting `OPENAI_API_KEY` alone does not configure the helper. Your API account needs access to the configured models. The current director is `gpt-realtime-2.1`, with `gpt-4o-mini-transcribe` for transcript memory; `PRODUCER_MODEL` configures the optional Responses consulting editor.
 
-Keep the terminal running. Open <http://127.0.0.1:8786/>. The helper binds only to loopback. Starting it does not capture media, run inference or start OBS. **Start offline test** uses OpenAI processing but keeps Twitch operations simulated.
+Keep the terminal running. Open <http://127.0.0.1:8786/>. The main helper binds only to loopback. Starting it does not capture media, run inference or start OBS. **Start offline test** uses OpenAI processing but keeps Twitch operations simulated.
 
 For a no-key preview, omit `--key-file` and open <http://127.0.0.1:8786/design>. Preview content is authored; it does not prove a model result.
 
@@ -36,7 +36,7 @@ my-show/
   diagram.png
 ```
 
-Then add `--show-folder /absolute/path/to/my-show` to the helper command. Ordinary Markdown/text becomes private show context; one reserved `research-packet.md` or `.txt` becomes the research packet. Public still images are catalogued for the model to select. Supported limits are twelve images, 4 MB each, in PNG/JPEG/WebP formats. Subfolders, symlinks and unsupported files are excluded. The folder's `README.md` is ignored.
+Then add `--show-folder /absolute/path/to/my-show` to the helper command. Ordinary Markdown/text becomes private show context; one reserved `research-packet.md` or `.txt` becomes the research packet. Public still images are cataloged for the model to select. Supported limits are twelve images, 4 MB each, in PNG/JPEG/WebP formats. Subfolders, symlinks and unsupported files are excluded. The folder's `README.md` is ignored.
 
 Pasted/imported notes and research override the folder selection. **Remove packet** explicitly selects no research, including after a page refresh. Start pins the selected materials; End before changing them for another show.
 
@@ -50,7 +50,7 @@ Pasted/imported notes and research override the folder selection. **Remove packe
 
 Keep the Producer control/monitor page open. Switching focus is supported; closing or reloading that page currently ends the show. Model output is not guaranteed on every interval. An explicit source or provider error pauses/stops processing rather than silently choosing another feed or model.
 
-## 4. Feed the complete OBS programme directly
+## 4. Feed the complete OBS program directly
 
 Start the helper with a separate local input port:
 
@@ -58,7 +58,7 @@ Start the helper with a separate local input port:
 python producer/server.py --port 8786 --key-file /absolute/path/to/openai-key.txt --obs-input-port 8790
 ```
 
-To save a local video too, add `--obs-recording-dir /absolute/path/to/private-recordings`. Without that option the native programme is processed without retaining its raw media. With it, each connection is saved as a private `.ts` file. The browser remains at port 8786; the OBS receiver uses port 8790.
+To save a local video too, add `--obs-recording-dir /absolute/path/to/private-recordings`. Without that option the native program is processed without retaining its raw media. With it, each connection is saved as a private `.ts` file. The browser remains at port 8786; the OBS receiver uses port 8790.
 
 In a separate OBS rehearsal profile:
 
@@ -68,14 +68,14 @@ In a separate OBS rehearsal profile:
 4. The exercised setup used default MPEG-2 video/MP2 audio, 6000 Kbps video, 30-frame keyframe interval, 160 Kbps audio, 1280×720 output at 30 FPS, and audio track 1.
 5. Select the audio track containing your microphone and the full computer/media mix. Check the source meters and track assignments. The helper decodes the first audio stream; it does not combine isolated tracks.
 
-This replaces that OBS profile's ordinary file-recording destination. **To retain a local programme file, use the helper's `--obs-recording-dir` option.** Use another profile when you want ordinary OBS file recording.
+This replaces that OBS profile's ordinary file-recording destination. **To retain a local program file, use the helper's `--obs-recording-dir` option.** Use another profile when you want ordinary OBS file recording.
 
 Keep your existing camera/shared content. Add transparent OBS Browser Sources at the scene canvas size:
 
 - `http://127.0.0.1:8786/simulated-chat` for optional fictional demo comments.
 - `http://127.0.0.1:8786/on-air` above it for Producer's graphics.
 
-Do not capture the private confidence monitor into the programme. Producer must receive the composition containing chat if you want it to read those comments. A separate unshared chat window is not visible to it.
+Do not capture the private confidence monitor into the program. Producer must receive the composition containing chat if you want it to read those comments. A separate unshared chat window is not visible to it.
 
 In Producer select **OBS picture and audio**. Click **Start offline test**, then **Start Recording** in OBS. Decoded picture and audio start the Realtime session. This requires no virtual camera, browser device permission or virtual audio driver. Do not click **Start Streaming** for a local rehearsal.
 
@@ -85,14 +85,14 @@ Pause releases the feed. Stop any remaining OBS recording before resuming; click
 
 Instead of separate `/on-air` and `/simulated-chat` Browser Sources, add `http://127.0.0.1:8786/demo-layout` at **1920×1080** above your native camera and shared-window sources. This transparent overlay places Producer's public graphics over the shared window and fictional chat below the camera. Hide the separate overlay sources to avoid duplicates.
 
-For a 1920×1080 OBS canvas, use these transform bounds with centred **Fit** so each source keeps its aspect ratio:
+For a 1920×1080 OBS canvas, use these transform bounds with centered **Fit** so each source keeps its aspect ratio:
 
 | Source | X | Y | Width | Height |
 | --- | ---: | ---: | ---: | ---: |
 | Shared window | 24 | 24 | 1296 | 1032 |
 | Camera | 1344 | 24 | 552 | 310.5 |
 
-The chat region occupies (1344, 358) within 552×698. The overlay includes neither the camera nor the shared-window video itself. It reads the current show's public output; opening it does not start capture, inference, Twitch actions or broadcasting. `/demo-layout?preview=1` shows labelled fictional examples without starting a show. Remove `?preview=1` for the actual programme.
+The chat region occupies (1344, 358) within 552×698. The overlay includes neither the camera nor the shared-window video itself. It reads the current show's public output; opening it does not start capture, inference, Twitch actions or broadcasting. `/demo-layout?preview=1` shows labeled fictional examples without starting a show. Remove `?preview=1` for the actual program.
 
 Keep the private monitor and Producer controls outside any captured window or desktop. If the shared application contains an embedded browser, close private Producer pages inside that window before capturing it.
 
@@ -163,7 +163,7 @@ python producer/replay-director-actions.py --bundle .local/producer/my-rehearsal
 node producer/render-director-replay.cjs --bundle .local/producer/my-rehearsal --scenes replayed-scenes.jsonl --output .local/producer/my-rehearsal/review.mp4
 ```
 
-The renderer requires the optional Node/Playwright setup in [CONTRIBUTING](CONTRIBUTING.md), plus FFmpeg. Saved-action replay tests how local code reacts to model output, not whether the model would make better decisions. The ordinary live OBS session retains transcript/action records and optional programme video, but does not yet produce this complete replay bundle.
+The renderer requires the optional Node/Playwright setup in [CONTRIBUTING](CONTRIBUTING.md), plus FFmpeg. Saved-action replay tests how local code reacts to model output, not whether the model would make better decisions. The ordinary live OBS session retains transcript/action records and optional program video, but does not yet produce this complete replay bundle.
 
 ## Troubleshooting
 
@@ -173,7 +173,7 @@ The renderer requires the optional Node/Playwright setup in [CONTRIBUTING](CONTR
 | Waiting for OBS | Start Producer first, then Start Recording in the matching OBS profile. Check URL/port, container and audio track. |
 | Picture but no speech | Confirm the microphone meter, device and selected mix track in OBS. A disconnected device can remain listed. |
 | Provider connection fails | Check the private key file and API account model access. Offline mode still needs OpenAI. There is no automatic provider fallback. |
-| Chat is invisible to Producer | Include the chat layer in the actual captured programme, with legible size and enough time across sampled frames. |
+| Chat is invisible to Producer | Include the chat layer in the actual captured program, with legible size and enough time across sampled frames. |
 | Live actions unavailable | Check both helper enablement and per-show live selection, token identity/scopes, and Twitch channel capability. Do not infer success from an attempted call. |
 | Port already used | End the old helper or choose another screen/input port and update the OBS URLs to match. |
 

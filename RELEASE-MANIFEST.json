@@ -13,13 +13,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "c11b6c53a9b1372f9982c5eb421cf0bbf3afa5537292636f54404b8dc3b49180",
-      "bytes": 1289
+      "sha256": "4211c9110d9b631be2a51d0d775858f505dbf0f9b474a681743bb0359522d1a3",
+      "bytes": 1285
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "67c67550a27b02256750c882505062c6ea12ade02dc7aef80fd682cf84a64d4d",
-      "bytes": 1118
+      "sha256": "f276df6cc466255338218d79149f88db7f0fd4e332a1120b32b2d157df4cbdb8",
+      "bytes": 1116
     },
     {
       "path": "LICENSE",
@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "1635a1a9c50a23886582695ac302d1f6ccb72806d1ff01a63007b6101bba3d24",
-      "bytes": 3991
+      "sha256": "061dfea02c4c71ddfad71cf37ad8049c52bc27a4e6276051e4449b6cf45272fe",
+      "bytes": 3319
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -48,13 +48,13 @@
     },
     {
       "path": "docs/SECURITY.md",
-      "sha256": "490589816f807b6d323f3be055de919ac7ccf2c16bf24b8b3f15d4287c31ee54",
-      "bytes": 4915
+      "sha256": "9f9ebe4cd879b67a461414001fa026c9a8b2fd8abadbb4840ca04e0893d12953",
+      "bytes": 4908
     },
     {
       "path": "docs/SETUP.md",
-      "sha256": "e2ea47a67537cb1b9c223b92cfcf59f970d2ccb1cbadfe110b1ff1a88e500f57",
-      "bytes": 15135
+      "sha256": "661b062ab544004725820dea118d2a801e813bb0fd286972025891065178a820",
+      "bytes": 15125
     },
     {
       "path": "examples/show-notes.md",

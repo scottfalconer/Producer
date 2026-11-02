@@ -3,7 +3,7 @@
 ## 0.1.0 — November 2, 2026
 
 - One Realtime director coordinates a private presenter monitor and public OBS overlay.
-- Direct OBS programme/audio input, optional browser input, show notes and research packets.
+- Direct OBS program/audio input, optional browser input, show notes and research packets.
 - Simulated incoming chat, offline-by-default production, and explicitly enabled Twitch actions.
 - Timestamped local show memory, recording rehearsal and API-free action replay tools.
 - Generic Twitch account connection, standalone credential loading, and a clean setup guide.
