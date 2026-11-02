@@ -47,6 +47,4 @@ The optional demo chat contains fictional comments, disclosed on screen. Produce
 - [Privacy and security](docs/SECURITY.md)
 - [Director prompt](producer/realtime_prompt.md)
 
-This is an early prototype. Model timing and usefulness vary; long broadcasts and live production need further testing.
-
 Producer’s original code is [MIT licensed](LICENSE). Bundled assets retain their [third-party licenses and notices](THIRD_PARTY_NOTICES.md).

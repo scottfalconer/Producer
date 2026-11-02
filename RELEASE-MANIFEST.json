@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "061dfea02c4c71ddfad71cf37ad8049c52bc27a4e6276051e4449b6cf45272fe",
-      "bytes": 3319
+      "sha256": "643a3bd379e19b05d13bb5b86974a397be2257d5a2fc5b62d2134fcf25a33d48",
+      "bytes": 3198
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -273,8 +273,8 @@
     },
     {
       "path": "producer/realtime_prompt.md",
-      "sha256": "9a17396094d021dc77952ba32447c8713fb2758797376bb5a2630962dbacc88b",
-      "bytes": 17355
+      "sha256": "e7fd7bc5300d328525c954e78ae7d6bc376a959bc4ee964c2e28346df6d6ca04",
+      "bytes": 17267
     },
     {
       "path": "producer/recorded_inputs.py",
